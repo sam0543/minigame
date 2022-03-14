@@ -133,12 +133,15 @@ class Button extends UIElement
     }
 
     mouseClicked(mouseX, mouseY)
-    {
+    {   
+        this.mouseHover (mouseX, mouseY);
+        
         //console.log(mouseX + ", " + mouseY);
-        if (mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height)
+        if (mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height && this.game.click)
         {
-            this.buttonFront.color = 'lightgreen';
+            //this.buttonFront.color = 'lightgreen';
             this.onMouseClicked();
+            this.game.click = false;
         }
     }
 
@@ -160,7 +163,7 @@ class Button extends UIElement
         if (mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height)
         {   
             document.documentElement.style.cursor = "pointer";
-            this.buttonFront.color = 'lightblue';
+            this.buttonFront.color = 'lightgreen';
         }
         else
         {   

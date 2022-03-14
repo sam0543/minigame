@@ -19,28 +19,17 @@ class Popcat extends Entity {
     changeHealth(val) {
         this.currentHealth += val;
 
-        if (this.currentHealth <= 0 && this.timeElapsed == 10) {
-            this.isPop = false;
-            this.currentHealth == 0;
-            this.state = 2;
-            
+        if (this.currentHealth <= 0) {
+            this.timeElapsed++;
+            if (this.timeElapsed > 100) {
+                this.isPop = false;
+            } 
         }
     }
     
     update(){
         super.update();
-        
-        this.timeElapsed+= 1;
-        if ( (this.timeElapsed > 100) && this.state == 2) {
-            
-            this.state = 0;
-            
-        } else if (this.timeElapsed == 150) {
-                this.timeElapsed = 0;
-                this.state = 2;
-        } 
-        
-        
+
     }
     
     draw(ctx){
