@@ -3,6 +3,7 @@ class Scene extends Entity {
     super(game, 0, 0);
     this.game.camera = this;
     this.game.elapsedTime = 0;
+    this.blinktimer = 0;
     this.x = 0;
     this.entites = [];
     //this.game.mouse;
@@ -23,7 +24,7 @@ class Scene extends Entity {
     
     update() {
         this.game.elapsedTime++;
-        if (this.game.elapsedTime%10000 && this.popcat.isPop ){
+        if (this.game.elapsedTime%100000 && this.popcat.isPop ){
             this.popcat.changeHealth(-.001);
         }
         
@@ -35,12 +36,16 @@ class Scene extends Entity {
                 this.popcat.changeHealth(.1);
                 
             } else {
-                if ( (this.game.timeElapsed > 100) && this.state == 2)  {
-                    this.state = 0;
+                this.blinktimer++;
+                if (this.blinktimer >= 100) {
+                    if (this.blinktimer >= 150) {
+                        this.blinktimer = 0;
+                    }
+                    this.popcat.state = 0;
                 } else {
-                    this.game.timeElapsed = 0;
-                    this.state = 2;
+                    this.popcat.state = 2;
                 }
+
             }
         }
         

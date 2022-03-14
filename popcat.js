@@ -9,7 +9,7 @@ class Popcat extends Entity {
         this.timeElapsed = 0;
         
         this.ani = [];
-        this.ani[1] = new Animator(ASSET_MANAGER.getAsset("pixelpopcatspritesheet.png"), 13, 0, 64, 64, 6, .2);
+        this.ani[1] = new Animator(ASSET_MANAGER.getAsset("pixelpopcatspritesheet.png"), 205, 0, 64, 64, 1, 1);
         this.ani[0] = new Animator(ASSET_MANAGER.getAsset("pixelpopcatspritesheet.png"), 397, 0, 64, 64, 8, .15);
         this.ani[2] = new Animator(ASSET_MANAGER.getAsset("pixelpopcatspritesheet.png"), 397, 0, 64, 64, 1, 1);
         
